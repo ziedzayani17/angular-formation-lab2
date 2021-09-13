@@ -58,24 +58,24 @@ ng generate component movies
 Utilser le décorateur *@Output* pour envoyer des événement de composant fils vers le composant parent
 
 **1. Déclaration EvenetEmitteur:**
-```sh
+```js
 @Output() readonly myFirstEventEmitter = new EventEmitter<string>();
 ```
 
 **2. Création de le fonction d'envoi dans MovieComponent, lier cette fonction avec l'événement click sur le nom de film**
-```sh
+```js
  sendEvent() {
     this.myFirstEventEmitter.emit(`Je suis un événement envoyer par le film :${this.movie.name}`);
   }
 ```
 
 **3. Dans le composant parent parent, déclare la liste qui va stocker les événements**
-```sh
+```js
 items! : string[];
 ```
 
 **4. Déclarer la fonction résponsable à ma réception de l'évenement**
-```sh
+```js
 addItem(newItem: string) {
     this.items.push(newItem);
   }
@@ -109,12 +109,12 @@ addItem(newItem: string) {
 <br>
 
 **1. Import pipe**
-```sh
+```js
 import { DatePipe } from '@angular/common'
 ```
 
 **2. Injecter le pipe dans le constructeur**
-```sh
+```js
 constructor(datePipe: DatePipe) { 
   }
 ```
@@ -122,7 +122,7 @@ constructor(datePipe: DatePipe) {
 pour pouvoir l’injecter et l’utiliser dans ton composant
 
 **3. Ajouter le pipe dans provider**
-```sh
+```js
 @Component({
   selector: 'app-movie',
   templateUrl: './movie.component.html',
@@ -133,7 +133,7 @@ pour pouvoir l’injecter et l’utiliser dans ton composant
 
 **4. Appliquer le pipe**
 Dans le constructeur ajouter : 
-```sh
+```js
 this.today = this.datePipe.transform( new Date(),'yyyy-MM-dd  hh:mm:ss');
 ```
 
